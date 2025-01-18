@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>3DWeb</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <script type="importmap">
+        {
+        "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.167.0/build/three.module.js",
+        "three/examples/jsm/loaders/GLTFLoader.js": "https://cdn.jsdelivr.net/npm/three@0.167.0/examples/jsm/loaders/GLTFLoader.js"
+        }
+        }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/script.js" defer></script>
+        <script type="module" src="js/3d.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Zen+Old+Mincho&display=swap" rel="stylesheet">  
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    </head>
+<body>
+<main>
+    <section class="loadingScreen">
+        <div class="loadingScreen loadingScreen__01"></div>
+        <div class="loadingScreen loadingScreen__02"></div>
+        <div class="loadingScreen loadingScreen__03"></div>
+    </section>
+    <section class="mainvisual">
+        <div class="mainvisual__header">continue to dream</div>
+        <div class="swiper mainvisual__slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">1</div>
+                <div class="swiper-slide">2</div>
+                <div class="swiper-slide">3</div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+    <section class="floatImages">
+            <article class="image_description description__01">
+                <div class="floatImage floatImage__01">
+                    <img src="img/240512_rendering02.png" alt="" class="floatImage__img">
+                    <p>テキストテキスト</p>
+                </div>
+            <svg viewBox="0 0 500 99.77" class="bg bg__02"><path fill="#231815" d="M0,22.75s18.39-2.82,27.49-3.27c64.24-3.16,77.41,30.56,159.06,40.94,25.22,3.21,84.96,7.74,150.88-14.04C398.3,26.26,404.43,3.54,445.62.18c18.03-1.47,54.39,6.56,54.39,6.56v93.02H0V22.75Z"/></svg>
+            </article>
+            <article class="image_description description__02">
+                <div class="floatImage floatImage__02">
+                    <img src="img/240512_rendering03.png" alt="" class="floatImage__img">
+                    <p>テキストテキスト</p>
+                </div>
+            <svg viewBox="0 0 500 99.77" class="bg bg__03"><path fill="#231815" d="M0,22.75s18.39-2.82,27.49-3.27c64.24-3.16,77.41,30.56,159.06,40.94,25.22,3.21,84.96,7.74,150.88-14.04C398.3,26.26,404.43,3.54,445.62.18c18.03-1.47,54.39,6.56,54.39,6.56v93.02H0V22.75Z"/></svg>
+            </article>
+            <article class="image_description description__03">
+                <div class="floatImage floatImage__03">
+                    <img src="img/240512_rendering04.png" alt="" class="floatImage__img">
+                    <p>テキストテキスト</p>
+                </div>
+            </article>
+    </section>
+    <section class="slide-section">
+        <div class="slide-container">
+          <div class="slide">slide 1</div>
+          <div class="slide">slide 2</div>
+          <div class="slide">slide 3</div>
+        </div>
+      </section>
+    <section class="model-viewer"></section>
+</main>
+</body>
+</html>

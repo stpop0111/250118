@@ -1,0 +1,177 @@
+*{
+    font-family: "Bodoni Moda SC", serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --color01:#F1B87B;
+    --color02:#CF9E6A;
+    --color03:#FABF80;
+    --color04:#AD8458;
+    --color05:#8B6A47;
+    --color06:#695036;
+}
+
+.loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+.loadingScreen__01 {
+    background: var(--color04);
+    z-index: 90;
+}
+.loadingScreen__02 {
+    background: var(--color05);
+    z-index: 80;
+}
+.loadingScreen__03 {
+    background: var(--color06);
+    z-index: 70;
+}
+
+.mainvisual{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color01);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainvisual__header{
+    font-family: "Bodoni Moda SC", serif;
+    position:absolute;
+    top: 50vh;
+    left: 50vw;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    transform: translate(-50%, 50%);
+    font-size: 5rem;
+    line-height: 0;
+    z-index: 2;
+}
+
+.swiper {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+    font-size: 1.5rem;
+}
+
+.swiper-pagination {
+    /* ページネーションの位置を下に固定 */
+    position: absolute;
+    bottom: 10px;
+    height: auto;
+}
+
+.bg{
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+}
+
+.bg__01 path{
+    fill: var(--color04);
+}
+
+.bg__02 path{
+    fill: var(--color05);
+}
+
+.bg__03 path{
+    fill: var(--color06);
+}
+
+.floatImages{
+    width: 100vw;
+    height: auto;
+    position: relative;
+    /* display: flex; */
+}
+
+.image_description{
+    position: relative;
+    height: 100vh;
+    z-index: 3;
+}
+
+.description__01{
+    background: var(--color04);
+}
+
+.description__02{
+    background: var(--color05);
+}
+
+.description__03{
+    background: var(--color06);
+}
+
+.floatImage{
+    position: absolute;
+    width: 30%;
+    height: auto;
+    z-index: 10;
+}
+
+.floatImage__01{
+    left: 30%;
+}
+
+.floatImage__02{
+    left: 10%;
+}
+
+.floatImage__03{
+    left: 50%;
+}
+
+.slide-section {
+    height: 100vh;
+    position: relative;
+}
+
+.slide-container {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.model-viewer{
+    height: 100vh;
+    background: #000;
+}
