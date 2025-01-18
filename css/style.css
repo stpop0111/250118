@@ -1,19 +1,31 @@
 *{
     font-family: "Bodoni Moda SC", serif;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+}
+
+img{
+    width: 100%;
+    height: auto;
 }
 
 :root{
-    --color01:#F1B87B;
-    --color02:#CF9E6A;
-    --color03:#FABF80;
-    --color04:#AD8458;
-    --color05:#8B6A47;
-    --color06:#695036;
+    /* 色設定 */
+    --color-01:#F8FAFC;
+    --color-02:#D9EAFD;
+    --color-03:#BCCCDC;
+    --color-04:#9AA6B2;
+
+    /* スペース設定 */
+    --space-S:1rem;
+    --space-M:1.5rem;
+    --space-L:2rem;
+
+    /* シャドー設定 */
+    --shadow-01: 0 4px 1px rgba(0, 0, 0, 0.1);
+    --shadow-02: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ローディング画面
+============================= */
 .loadingScreen {
     position: fixed;
     top: 0;
@@ -22,49 +34,93 @@
     height: 100%;
     z-index: 99;
 }
+
 .loadingScreen__01 {
-    background: var(--color04);
-    z-index: 90;
+    background: var(--color-01);
+    z-index: 102;
 }
+
 .loadingScreen__02 {
-    background: var(--color05);
-    z-index: 80;
+    background: var(--color-02);
+    z-index: 101;
 }
+
 .loadingScreen__03 {
-    background: var(--color06);
-    z-index: 70;
+    background: var(--color-03);
+    z-index: 100;
 }
+
+/* ナビゲーション
+============================= */
+.nav-wrapper {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%,50%);
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 90vw;
+    height: auto;
+    padding: var(--space-S) var(--space-L);
+
+    border-radius: 999px;
+    background: rgb(from var(--color-02) r g b / 0.5);
+    box-shadow: var(--shadow-02);
+    backdrop-filter: blur(16px);
+}
+
+.gnav__icon {
+    width: 30%;
+    max-width: 120px;
+    height: auto;
+}
+
+.gnav__list {
+    display: flex;
+    gap: var(--space-L);
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: var(--space-M);
+}
+
+/* メインビジュアル
+============================= */
 
 .mainvisual{
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: var(--color01);
 
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 .mainvisual__header{
-    font-family: "Bodoni Moda SC", serif;
-    position:absolute;
-    top: 50vh;
-    left: 50vw;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    transform: translate(-50%, 50%);
-    font-size: 5rem;
-    line-height: 0;
+    position: absolute;
     z-index: 2;
+    width: 100%;
+    padding: var(--space-L);
+    font-family: "Bodoni Moda SC", serif;
+    text-align: center;
+    font-size: clamp(16px, 10vw, 30rem);
+    line-height: 1;
+    pointer-events: none;  /* クリックイベントを透過 */
 }
+
+
+/* Swiperの設定
+============================= */
 
 .swiper {
     width: 100%;
-    max-width: 800px;
-    height: 400px;
-    margin: 20px auto;
+    height: 100%;
     position: relative;
 }
 
@@ -93,7 +149,7 @@
 }
 
 .bg__01 path{
-    fill: var(--color04);
+    fill: var(--color-04);
 }
 
 .bg__02 path{
@@ -118,7 +174,7 @@
 }
 
 .description__01{
-    background: var(--color04);
+    background: var(--color-04);
 }
 
 .description__02{
@@ -148,6 +204,7 @@
     left: 50%;
 }
 
+/* スライだー */
 .slide-section {
     height: 100vh;
     position: relative;

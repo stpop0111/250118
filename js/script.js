@@ -9,9 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 class ScrollInteraction {
     constructor() {
-        // 動かす要素を見つけるよ！
         this.images = Array.from(document.querySelectorAll('.floatImage'));
-        this.wave = document.querySelectorAll('.bg');
 
         this.config = {
             strength: 0.2,
@@ -55,17 +53,11 @@ class ScrollInteraction {
     }
 
     handleScroll() {
-        // スクロール量から移動量を計算
         const direction = this.config.isReverse ? -1 : 1;
         const moveY = Math.min(
-            Math.max(
-                window.scrollY * this.config.strength * direction,
-                -this.config.maxMove
-            ),
+            Math.max(window.scrollY * this.config.strength * direction,-this.config.maxMove),
             this.config.maxMove
         );
-
-        // 各要素のアニメーションを更新
         this.animations.forEach(animation => {
             animation.effect.setKeyframes([
                 { transform: 'translateY(0px)' },
@@ -81,13 +73,11 @@ class FadeInterection{
         this.images.forEach(image => {
             image.style.opacity = 0
         });
-
         this.config = {
             ease: 'ease-in',
             duration: 1000,
             threshold: 0.2
         }
-
         this.init()
     }
 
@@ -116,6 +106,10 @@ class FadeInterection{
         this.images.forEach(image => observer.observe(image));
     }
 }
+
+
+
+
 class TextAnimation {
     constructor() {
         this.element = document.querySelector('.mainvisual__header');
@@ -129,10 +123,10 @@ class TextAnimation {
 
         this.chars = this.element.textContent.split('');
         this.element.innerHTML = this.chars.map(char => 
-            `<span style="opacity: 0">${char}</span>`
+            `<span class="sText" style="opacity: 0">${char}</span>`
         ).join('');
 
-        this.elements = document.querySelectorAll('span');
+        this.elements = document.querySelectorAll('.sText');
 
         window.addEventListener('load', () => {
             setTimeout(() => {
