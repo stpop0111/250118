@@ -242,71 +242,43 @@ class swiperControl {
     prev(){ this.swiper.slidePrev(); }
 }
 
-class SlideAnimation {
-    constructor() {
-        this.container = document.querySelector('.slide-container');
-        this.slides = document.querySelectorAll('.slide');
-        this.currentSlide = 0;
-        this.animations = [];
+gsap.registerPlugin(ScrollTrigger);
         
-        this.setupSlides();
-        this.observeContainer();
-    }
+const slides = document.querySelectorAll('.slide');
+const slideCount = slides.length;
 
-    setupSlides() {
-        // z-indexとアニメーションの設定
-        this.slides.forEach((slide, i, arr) => {
-            // z-indexを設定（一番上のスライドが前面に）
-            slide.style.zIndex = arr.length - i;
-            
-            // アニメーションを準備
-            const animation = slide.animate(
-                [
-                    { transform: 'translateY(0)' },
-                    { transform: 'translateY(-100vh)' }
-                ],
-                { 
-                    duration: 800,  // ちょっと早めに
-                    fill: 'forwards',
-                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
-                }
-            );
-            
-            animation.pause();
-            this.animations.push(animation);
-        });
+const slideTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".slide-section",
+        pin: true,
+        start: "top top",
+        end: `+=${(slideCount - 1) * 100}%`,
+        scrub: 1,
     }
+});
 
-    observeContainer() {
-        const observer = new IntersectionObserver(entries => {
-            const entry = entries[0];
-            if (entry.isIntersecting) {
-                document.body.style.overflow = 'hidden';
-                this.setupScroll();
-                observer.disconnect();
+slides.forEach((slide, index) => {
+    if (index === 0) return;
+    let slideProgress = 0;
+    
+    slideTl.to(slide, {
+        y: 0,
+        delay: 0.2,
+        duration: 1,
+        ease: "power1.inOut",
+        onUpdate: () => {
+            const prevSlide = slides[index - 1];
+            if (prevSlide) {
+                const totalProgress = Math.max(0, slideTl.progress() - 0.2);
+                const progressPerSlide = 1 / (slideCount - 1);
+                const currentSlideProgress = (totalProgress - (index - 1) * progressPerSlide) / progressPerSlide;
+                
+                slideProgress = Math.max(0, Math.min(1, currentSlideProgress));
+                
+                // エフェクトを適用
+                prevSlide.style.setProperty('--darkness', slideProgress * 0.8);
+                prevSlide.style.setProperty('--blur', slideProgress * 10);
             }
-        }, { threshold: 1 });
-
-        observer.observe(this.container);
-    }
-
-    setupScroll() {
-        window.addEventListener('wheel', e => {
-            e.preventDefault();
-            
-            if (e.deltaY > 0) {  // 下スクロール
-                if (this.currentSlide < this.slides.length - 1) {
-                    this.animations[this.currentSlide].play();
-                    this.currentSlide++;
-                } else if (this.currentSlide === this.slides.length - 1) {
-                    document.body.style.overflow = '';
-                }
-            } else {  // 上スクロール
-                if (this.currentSlide > 0) {
-                    this.currentSlide--;
-                    this.animations[this.currentSlide].reverse();
-                }
-            }
-        }, { passive: false });
-    }
-}
+        }
+    });
+});

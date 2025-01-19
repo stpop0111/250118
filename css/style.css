@@ -95,7 +95,7 @@ img{
 
 .mainvisual{
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 
     display: flex;
@@ -111,7 +111,7 @@ img{
     text-align: center;
     font-size: clamp(16px, 10vw, 30rem);
     line-height: 1;
-    pointer-events: none;  /* クリックイベントを透過 */
+    pointer-events: none;
 }
 
 
@@ -161,7 +161,7 @@ img{
 }
 
 .floatImages{
-    width: 100vw;
+    width: 100%;
     height: auto;
     position: relative;
     /* display: flex; */
@@ -231,4 +231,56 @@ img{
 .model-viewer{
     height: 100vh;
     background: #000;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.content {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    font-size: 2rem;
+}
+
+.slide-section {
+    height: 100vh;
+    overflow: hidden;
+    background: white;
+    position: relative;
+}
+
+.slide {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+    transform: translateY(100%);
+    
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background: rgba(0, 0, 0, var(--darkness));  /* 背景色を変数で制御 */
+        backdrop-filter: blur(calc(var(--blur) * 1px));  /* px単位を追加 */
+        pointer-events: none;  /* クリックイベントを透過 */
+    }
+}
+.slide:first-child {
+    transform: translateY(0);
 }
