@@ -90,6 +90,10 @@ img{
     font-size: var(--space-M);
 }
 
+.gnav__item {
+    width: auto;
+}
+
 /* メインビジュアル
 ============================= */
 
@@ -124,6 +128,12 @@ img{
     position: relative;
 }
 
+.swiper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .swiper-slide {
     display: flex;
     justify-content: center;
@@ -133,11 +143,13 @@ img{
 }
 
 .swiper-pagination {
-    /* ページネーションの位置を下に固定 */
     position: absolute;
     bottom: 10px;
     height: auto;
 }
+
+/* コンテンツの設定
+============================= */
 
 .bg{
     position: absolute;
@@ -164,7 +176,6 @@ img{
     width: 100%;
     height: auto;
     position: relative;
-    /* display: flex; */
 }
 
 .image_description{
@@ -204,7 +215,7 @@ img{
     left: 50%;
 }
 
-/* スライだー */
+/* 縦型スライダー */
 .slide-section {
     height: 100vh;
     position: relative;
