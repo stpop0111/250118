@@ -4,7 +4,6 @@ window.addEventListener('DOMContentLoaded', () => {
     new TextAnimation();
     new LoadingScreen();
     new swiperControl();
-    new SlideAnimation();
 })
 
 class ScrollInteraction {
